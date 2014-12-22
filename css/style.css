@@ -1,12 +1,28 @@
-.jumbotron .container {
+.jumbotron .header-container {
 	background-image:url('http://factmag-images.s3.amazonaws.com/wp-content/uploads/2012/04/ice-cube-4.27.2012.jpg');
   height: 250px;
 }
 
-.jumbotron .container h1 {
+.jumbotron .header-container h1 {
 	color:#fff;
 	font-size: 50px;
 	font-weight: bold;
 	position: relative;
 	top: 30px;
+}
+
+.jumbotron .header-container p {
+	color:#fff;
+	font-size: 20px;
+	font-weight: normal;
+	position: relative;
+	top: 25px;
+}
+
+.email-container h4 {
+	font-weight: bold;
+	border-bottom: black 1px solid;
+	padding-top: 15px;
+	padding-bottom: 5px;
+
 }
