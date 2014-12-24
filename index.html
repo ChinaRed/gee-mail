@@ -9,11 +9,12 @@
     <script>
     window.onload = function(){
  
-	window.geemails = [];
-	loadGeeMails();	
+		//window.geemails = [];
+		//loadGeeMails();	
 
- $('body').append('<div class="email-container"></div>');
-        for(var i = 0; i < window.geemails.length; i ++) {
+ 		//$('body').append('<div class="email-container"></div>');
+
+        for(var i = 0; i < window.geemails.length; i++) {
 		   var date = window.geemails[i]['date'];
 		   var sender = window.geemails[i]['sender'];
 		   var subject = window.geemails[i]['subject'];
@@ -30,6 +31,39 @@
                 
             )
     	}
+
+    	function addNewMessage (){
+    		
+    		var message = getNewMessage();
+    		console.log (message);
+
+
+    		$('.email-container').append(
+                '<div class="email-row">' +
+                '<div> &nbsp </div>' +
+                '<div class="col-md-2">'  + date + '</div>' +
+                '<div class="col-md-2">'  + sender +  '</div>' +
+                '<div class="col-md-3">'  + subject +  '</div>' +
+                '<div class="col-md-5">'  + body +  '</div>' +
+                '<div> &nbsp </div>'
+            )
+    		//get the new message
+
+    		//Add new message to page
+    	}
+  	
+    	var interval = setInterval(addNewMessage,2000);
+    	
+    		
+
+    	/*
+    	window.geemails.push(subject);
+    	console.log ("push");
+    	*/
+
+    	document.getElementById("inbox-counter").innerHTML = window.geemails.length;
+
+
 }	
 
 	    // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
@@ -46,6 +80,12 @@
 			<h1>GeeMail web application inbox</h1>
 				<p>Creating a simulation of a little known current e-mail web application you may or may not have heard of</p>
 		</div>
+
+	<div class="counter">
+		<p>Inbox Counter</p>
+			<p id="inbox-counter"></p>
+		</div>
+
 
 	<div class="email-container">
 		<div class = "col-md-2"><h4>Date</h4></div>
