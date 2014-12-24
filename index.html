@@ -15,21 +15,11 @@
  		//$('body').append('<div class="email-container"></div>');
 
         for(var i = 0; i < window.geemails.length; i++) {
-		   var date = window.geemails[i]['date'];
-		   var sender = window.geemails[i]['sender'];
-		   var subject = window.geemails[i]['subject'];
-		   var body = window.geemails [i]['body'];
 
-        	$('.email-container').append(
-                '<div class="email-row">' +
-                '<div> &nbsp </div>' +
-                '<div class="col-md-2">'  + date + '</div>' +
-                '<div class="col-md-2">'  + sender +  '</div>' +
-                '<div class="col-md-3">'  + subject +  '</div>' +
-                '<div class="col-md-5">'  + body +  '</div>' +
-                '<div> &nbsp </div>'
-                
-            )
+		   var message = window.geemails[i];
+		   displayMessage(message);
+
+            
     	}
 
     	function addNewMessage (){
@@ -37,8 +27,25 @@
     		var message = getNewMessage();
     		console.log (message);
 
+    		displayMessage(message);
 
-    		$('.email-container').append(
+    		window.geemails.push(message);
+    		console.log (window.geemails.length);
+    	}
+  	
+    	var interval = setInterval(addNewMessage,2000);
+    	
+
+    	function displayMessage (message) {
+    			var date = message.date;
+    			var sender = message.sender;
+    			var subject = message.subject;
+    			var body = message.body;
+
+    			console.log (sender);
+    			
+
+    			$('.email-container').append(
                 '<div class="email-row">' +
                 '<div> &nbsp </div>' +
                 '<div class="col-md-2">'  + date + '</div>' +
@@ -46,16 +53,8 @@
                 '<div class="col-md-3">'  + subject +  '</div>' +
                 '<div class="col-md-5">'  + body +  '</div>' +
                 '<div> &nbsp </div>'
-            )
-    		//get the new message
-
-    		//Add new message to page
-    	}
-  	
-    	var interval = setInterval(addNewMessage,2000);
-    	
-    		
-
+           		)
+    	}    	
     	/*
     	window.geemails.push(subject);
     	console.log ("push");
