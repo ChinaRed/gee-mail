@@ -18,7 +18,7 @@
 
 		   var message = window.geemails[i];
 		   displayMessage(message);
-
+           document.getElementById("inbox-counter").innerHTML = window.geemails.length;
             
     	}
 
@@ -31,6 +31,7 @@
 
     		window.geemails.push(message);
     		console.log (window.geemails.length);
+            document.getElementById("inbox-counter").innerHTML = window.geemails.length;
     	}
   	
     	var interval = setInterval(addNewMessage,2000);
@@ -42,9 +43,6 @@
     			var subject = message.subject;
     			var body = message.body;
 
-    			console.log (sender);
-    			
-
     			$('.email-container').append(
                 '<div class="email-row">' +
                 '<div> &nbsp </div>' +
@@ -55,13 +53,8 @@
                 '<div> &nbsp </div>'
            		)
     	}    	
-    	/*
-    	window.geemails.push(subject);
-    	console.log ("push");
-    	*/
-
-    	document.getElementById("inbox-counter").innerHTML = window.geemails.length;
-
+      
+              
 
 }	
 
